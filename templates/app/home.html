@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HomePage</title>
-</head>
-<body>
-    <h1>This is my Homepage</h1>
-</body>
-</html>
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Barangay Silog Pet Management System</h1>
+            <p>Your trusted partner in pet care and adoption.</p>
+            <a href="{% url 'about' %}" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service">
+                <img src="{% static 'images/Adoptme.jpg' %}" alt="Pet Adoption">
+                <h3>Pet Adoption</h3>
+                <p>Find your perfect furry friend and give them a loving home.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/Vaccine.jpg' %}" alt="Veterinary Care">
+                <h3>Vaccination Program</h3>
+                <p>We provide top-notch medical and vaccination services for your beloved pets.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/lostpet.jpg' %}" alt="Pet Grooming">
+                <h3>Lost Pet Recovery Services</h3>
+                <p>Keeping Pets and People together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Join Our Community</h2>
+        <p>Become a part of our Barangay's growing pet-loving family.</p>
+        <a href="{% url 'login' %}" class="btn">Get Started</a>
+    </section>
+{% endblock %}

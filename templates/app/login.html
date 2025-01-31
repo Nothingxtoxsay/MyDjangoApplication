@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <form method="POST" class="login-form">
+            {% csrf_token %}
+            <h2 class="login-title">Welcome Back</h2>
+            <p class="login-subtitle">Log in to your account</p>
+            
+            {% if form.errors %}
+                <p class="error-message">Invalid username or password. Try again.</p>
+            {% endif %}
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="extras">
+                <a href="#">Forgot password?</a>
+                <p class="register-link">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}
